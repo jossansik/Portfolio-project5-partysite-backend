@@ -52,6 +52,7 @@ JWT_AUTH_SAMESITE = 'None'
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
     'localhost',
 ]
 
