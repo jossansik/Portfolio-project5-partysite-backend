@@ -51,7 +51,9 @@ JWT_AUTH_SAMESITE = 'None'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+]
 
 # Application definition
 
