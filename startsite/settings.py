@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'profiles',
     'categories',
     'posts',
+    'tags',
 ]
 
 SITE_ID = 1

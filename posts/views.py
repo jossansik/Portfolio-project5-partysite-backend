@@ -16,6 +16,7 @@ class PostList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'owner__profile',
+        'post_tags',
         'category',
     ]
     search_fields = [
