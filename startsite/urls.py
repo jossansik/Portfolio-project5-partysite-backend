@@ -27,4 +27,5 @@ urlpatterns = [
     ),
     path('api/', include('profiles.urls')),
     path('api/', include('categories.urls')),
+    path('api/', include('posts.urls')),
 ]
