@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions, filters
+from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from startsite.permissions import IsOwnerOrReadOnly
 from .models import Post
@@ -23,7 +24,9 @@ class PostList(generics.ListCreateAPIView):
         'owner__username',
         'title',
     ]
-    ordering_fields = []
+    ordering_fields = [
+        'comments_count',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -32,4 +35,6 @@ class PostList(generics.ListCreateAPIView):
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Post.objects.annotate().order_by('-created_at')
+    queryset = Post.objects.annotate(
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')

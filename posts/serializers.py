@@ -9,6 +9,7 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     post_tags = TagSerializer(many=True, read_only=True)
+    comments_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -20,6 +21,6 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'is_owner', 'owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'category',
-            'post_tags'
+            'post_tags', 'comments_count',
         ]
         extra_kwargs = {'post_tags': {'required': False}}
