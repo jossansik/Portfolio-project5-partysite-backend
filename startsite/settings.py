@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     'categories',
     'posts',
     'tags',
+    'comments',
 ]
 
 SITE_ID = 1
