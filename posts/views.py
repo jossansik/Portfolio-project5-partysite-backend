@@ -4,6 +4,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from startsite.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
+from tags.models import Tag
 
 
 class PostList(generics.ListCreateAPIView):
@@ -38,6 +39,20 @@ class PostList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+    def post(self, request, *args, **kwargs):
+        tags = request.data['tags']
+
+        result = self.create(request, *args, **kwargs)
+
+        post_id = result.data['id']
+
+        post = Post.objects.get(pk=post_id)
+
+        for tag_id in filter(lambda n: n != ',', tags):
+            tag = Tag.objects.get(pk=tag_id)
+            tag.posts.add(post)
+
+        return result
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
