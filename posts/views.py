@@ -53,6 +53,7 @@ class PostList(generics.ListCreateAPIView):
 
         return result
 
+
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]

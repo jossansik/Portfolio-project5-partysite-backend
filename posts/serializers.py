@@ -45,7 +45,7 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'is_owner', 'owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'category',
-            'like_id', 'likes_count', 
+            'like_id', 'likes_count',
             'comments_count', 'bookmark_id', 'bookmarks_count', 'post_tags',
         ]
         extra_kwargs = {'post_tags': {'required': False}}

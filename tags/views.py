@@ -3,6 +3,7 @@ from tags.serializers import TagSerializer, TagDetailSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Tag
 
+
 class TagList(generics.ListCreateAPIView):
     serializer_class = TagSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

@@ -10,11 +10,13 @@ from categories.models import Category
 class AddTagsToPostTest(TestCase):
     def test_can_add_tags_to_post(self):
         # Arrange
-        user = User.objects.create_user('jossan.svensson', 'blah@blah.com', 'testpassword')
+        user = User.objects.create_user(
+            'jossan.svensson', 'blah@blah.com', 'testpassword')
         category = Category.objects.create(name='Halloween')
         tag1 = Tag.objects.create(name='tag1', category=category)
         tag2 = Tag.objects.create(name='tag2', category=category)
-        post = Post.objects.create(title='Flexidrop', owner=user, category=category)
+        post = Post.objects.create(
+            title='Flexidrop', owner=user, category=category)
         tag_string = str(tag1.id) + ',' + str(tag2.id)
 
         # Act
