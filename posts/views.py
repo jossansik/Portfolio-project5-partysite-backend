@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions, filters
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
+from posts.services import add_tags_to_post
 from startsite.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
@@ -45,16 +46,10 @@ class PostList(generics.ListCreateAPIView):
 
     def post(self, request, *args, **kwargs):
         tags = request.data['tags']
-
         result = self.create(request, *args, **kwargs)
-
         post_id = result.data['id']
 
-        post = Post.objects.get(pk=post_id)
-
-        for tag_id in filter(lambda n: n != ',', tags):
-            tag = Tag.objects.get(pk=tag_id)
-            tag.posts.add(post)
+        add_tags_to_post(post_id=post_id, tags=tags)
 
         return result
 
