@@ -12,6 +12,7 @@ class PostList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
         likes_count=Count('likes', distinct=True),
+        bookmarks_count=Count('bookmarks', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
@@ -21,9 +22,11 @@ class PostList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'likes__owner__profile',
+        'bookmarks__owner__profile',
         'owner__profile',
         'post_tags',
         'likes',
+        'bookmarks',
         'category',
     ]
     search_fields = [
@@ -32,6 +35,7 @@ class PostList(generics.ListCreateAPIView):
     ]
     ordering_fields = [
         'likes_count',
+        'bookmarks_count',
         'comments_count',
         'likes__created_at',
     ]
@@ -58,6 +62,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
+        bookmarks_count=Count('bookmarks', distinct=True),
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
