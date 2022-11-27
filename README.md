@@ -132,11 +132,23 @@ To run tests, run the following command: coverage run manage.py test posts -v 2
  
 Located in posts/tests.py and tests only functions in services.py.
  
-#### Tests for add tags to post is located in: AddTagsToPostTest.
+#### Tests for adding tags to post is located in: AddTagsToPostTest.
  
-1. test_can_add_tags_to_post:
+1. test_can_add_tag_to_post:
  
-This tests that a post can have tags.
+When there are one tag submitted to a post,
+It should be connected,
+Then we should find the post by tag submitted.
+
+2. test_when_no_tags_submitted_expect_no_tags_on_post:
+When there are no tag submitted to a post,
+It should not be connected to any tags,
+Then we should not find any post for the tag.
+
+3. test_when_two_tags_submitted_expect_match_on_both_tags:
+When there are two tags submitted to a post,
+It should be connected to both tags,
+Then we should be able to find post by both tags.
 
 ## Issues
 
