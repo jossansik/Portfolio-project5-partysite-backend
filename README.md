@@ -34,8 +34,10 @@ Goal - The goal for this project was To build a community that make it easy and 
 The project is divided into two repositories, this one for the back-end (this) and one for the front-end, found [here](https://github.com/jossansik/Portfolio-project5-partysite-frontend).
 As Agile methodology during the development process of planning and designing this project Github Issues was used for user stories and Github Projects for kanban board.
  
-The project board is found [here](https://github.com/users/jossansik/projects/7)
+The project board is found [here](https://github.com/users/jossansik/projects/7). 
 The project board consists of both frontend and backend user stories to make the project objective coherent.
+
+![image](https://user-images.githubusercontent.com/92020968/204350921-8f701e9c-33dd-4b66-b3be-1b05701aeb34.png)
  
 The project is deployed through [Heroku](https://heroku.com) and accessed at https://partysite-api.herokuapp.com/.
  
