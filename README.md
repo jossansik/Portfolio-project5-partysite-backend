@@ -35,6 +35,7 @@ The project is divided into two repositories, this one for the back-end (this) a
 As Agile methodology during the development process of planning and designing this project Github Issues was used for user stories and Github Projects for kanban board.
  
 The project board is found [here](https://github.com/users/jossansik/projects/7)
+The project board consists of both frontend and backend user stories to make the project objective coherent.
  
 The project is deployed through [Heroku](https://heroku.com) and accessed at https://partysite-api.herokuapp.com/.
  
