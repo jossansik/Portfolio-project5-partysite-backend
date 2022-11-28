@@ -131,9 +131,12 @@ To acces content postman will automatically use the created cookie. BUT you will
  
 ### Python tests
  
+For testing I use [coverage](https://coverage.readthedocs.io/en/6.5.0/), to run test you first have to install requirements.txt.
+This is the command to install requirements.txt: 'pip3 install -r requirements.txt'
+
 To run tests, run the following command: coverage run manage.py test posts -v 2
  
-Located in posts/tests.py and tests only functions in services.py.
+The tests are located in /posts/tests.py and tests only functions in services.py.
  
 #### Tests for adding tags to post is located in: AddTagsToPostTest.
  
