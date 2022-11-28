@@ -139,19 +139,15 @@ Located in posts/tests.py and tests only functions in services.py.
  
 1. test_can_add_tag_to_post:
  
-When there are one tag submitted to a post,
-It should be connected,
-Then we should find the post by tag submitted.
+When there are one tag submitted to a post, it should be connected. Then we should find the post by tag submitted.
 
 2. test_when_no_tags_submitted_expect_no_tags_on_post:
-When there are no tag submitted to a post,
-It should not be connected to any tags,
-Then we should not find any post for the tag.
+
+When there are no tag submitted to a post, it should not be connected to any tags. Then we should not find any post for the tag.
 
 3. test_when_two_tags_submitted_expect_match_on_both_tags:
-When there are two tags submitted to a post,
-It should be connected to both tags,
-Then we should be able to find post by both tags.
+
+When there are two tags submitted to a post, it should be connected to both tags. Then we should be able to find post by both tags.
 
 ## Issues
 
